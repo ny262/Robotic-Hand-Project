@@ -1,0 +1,179 @@
+<link rel="stylesheet" href="style.css">
+
+<h1>Robotic Hand Project</h1>
+<!-- Import the Roboto Font family from Google Fonts -->
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<table style="width: 100%; border-collapse: collapse; font-family: 'Roboto', sans-serif; table-layout: fixed; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden;">
+  <tr style="height: 38px; text-align: center; font-size: 13px; font-weight: 700;">
+    
+    <!-- Stage 1 -->
+    <td style="background-color: #2b7041; color: #ffffff; border-right: 2px solid #ffffff;">
+      ✓ Phase 1: Foundation
+    </td>
+    
+    <!-- Stage 2 -->
+    <td style="background-color: #ecc94b; color: #1a1a1a; border-right: 2px solid #ffffff;">
+      ⚙ Phase 2: CAD Design
+    </td>
+    
+    <!-- Stage 3 (Unicode Hourglass Integrated) -->
+    <td style="background-color: #3182ce; color: #ffffff; border-right: 2px solid #ffffff;">
+      ⧗ Phase 3: Assembly
+    </td>
+    
+    <!-- Stage 4 -->
+    <td style="background-color: #edf2f7; color: #718096;">
+      ▷ Phase 4: EMG Data
+    </td>
+    
+  </tr>
+  <tr style="font-size: 11px; text-align: left; vertical-align: top;">
+    
+    <!-- Sub-text 1 (Light Green Background Tint) -->
+    <td style="padding: 10px; border-right: 1px solid #e2e8f0; line-height: 1.4; background-color: #f2f9f4; color: #1a1a1a;">
+      <strong>Status: Complete</strong><br>
+      <span style="color: #64748b;">Anatomy research & cardboard kinematics.</span>
+    </td>
+    
+    <!-- Sub-text 2 (Light Yellow Background Tint) -->
+    <td style="padding: 10px; border-right: 1px solid #e2e8f0; line-height: 1.4; background-color: #fffdf5; color: #1a1a1a;">
+      <strong>Status: Active</strong><br>
+      <span style="color: #64748b;">Chassis modelling & linkage calculation.</span>
+    </td>
+    
+    <!-- Sub-text 3 (Light Blue Background Tint) -->
+    <td style="padding: 10px; border-right: 1px solid #e2e8f0; line-height: 1.4; background-color: #ebf8ff; color: #1a1a1a;">
+      <strong>Status: Scheduled</strong><br>
+      <span style="color: #64748b;">3D printing, wiring, & physical testing.</span>
+    </td>
+    
+    <!-- Sub-text 4 -->
+    <td style="padding: 10px; line-height: 1.4; background-color: #f7fafc; color: #1a1a1a;">
+      <strong>Status: Future</strong><br>
+      <span style="color: #64748b;">sEMG signal acquisition & filtering.</span>
+    </td>
+    
+  </tr>
+</table>
+
+<body>
+  
+  <p>
+  The objective of this CAD project was to simulate a fracture plate explicitly engineered to navigate the clinical boundaries of paediatric anatomy, maximising mechanical stabilisation, while preserving natural bone healing mechanisms. Design choices were made with both physiology and surgical usability in mind.
+  </p>
+  
+  <p>
+  Designed for a 35 cm femur, this plate corresponds to the typical anatomy of an 8-to 9-year-old child <a href="#references" class="remote-link">[1]</a>. A child in this age range typically weighs between 25 to 29 kilograms <a href="#references" class="scroll-and-open">[2]</a> <a href="#references" class="remote-link">[3]</a>. The implant was designed for the walking forces of a 29 kg child, calculated by downscaling multi-axis adult gait telemetry data, with a safety factor of 2.0 <a href="#references" class="scroll-and-open">[4]</a>.
+  </p>
+  
+  <button type="button" class="collapsible"> <h2>Mechanical CAD and 3D Printing</h2> </button>
+  <div class="content">
+    <h3>Anatomical Foundation</h3>
+    <p>
+      <ul>The human muscle-tendon system sits in the forearm and anchors at the wrist carpal ligament, providing the mechanical foundation for finger curling (Figure 1.1).</ul>
+      <ul>Muscle contractions pull these tendons downward, rotating the phalangeal joints to close the fingers into a fist (Figure 1.1).</ul>
+      <ul>The main finger flexor is a deep forearm muscle mass that splits into four separate tendon lines to control each finger independently (Figure 1.2).</ul>
+    </p>
+    <img src="Images/Hand-Palmar-View" alt="Palmar View of Tendon Anatomy in the Hand"> <img src="Images/Flexor-Muscle-Anatomy" alt="Anatomy of the flexor muscles in the forearm ">
+   
+    <table>
+      <tr>
+        <th style="text-align: left; width: 65%;">Implant Feature </th>
+        <th style="text-align: left; width: 35%;">Visual Reference</th>
+      </tr>
+    
+      <tr>
+        <td style="vertical-align: top;">
+          <h3>Distal Anchor Configuration</h3>
+          <p class="clinical-context">
+            Children have active growth plates (physis) at their joints. The distal physis is located where the head of the adult fracture plate would normally sit. For a child, the head must be positioned above the physis so that the screws do not damage it.
+          </p>
+          <ul>
+            <li><strong>Maximised Anchor Space:</strong> Fits the most screws securely within the small area above the growth plate.</li>
+            <li><strong>Torsional Resistance:</strong> The triangular layout stops the bone from twisting.</li>
+            <li><strong>Fixation Stability:</strong> Spreads the 29 kg scaled child forces evenly to avoid damaging soft paediatric bone.</li>
+          </ul>
+        </td> 
+        <td style="text-align: center; vertical-align: middle;">
+          <img src="Images/distal-anchor.PNG" alt="Distal Anchor CAD">
+           <p>Figure 1: Image highlighting distal anchor positioning above the growth plate location.</p>
+        </td>
+      </tr>
+    
+      <tr>
+        <td style="vertical-align: top;">
+          <h3>Locking Compression Plate Combi Holes</h3>
+          <p class="clinical-context">
+            To complement this configuration, the plate shaft utilises LCP Combi Holes. This hybrid geometry integrates a threaded section for fixed-angle locking screws with dynamic compression cortical screws to achieve optimal load management.
+          </p>
+          <ul>
+            <li><strong>Mechanical Versatility:</strong> Allows the choice between rigid bridging fixation and axial compression depending on intraoperative needs.</li>
+            <li><strong>Biological Preservation:</strong> Locks the screws directly to the plate to avoid compression against the periosteal surface, preserving blood supply to accelerate bone healing.</li>
+          </ul>
+        </td> 
+        <td style="text-align: center; vertical-align: middle;">
+          <img src="Images/lcp-combi-hole.png" alt="Combi Holes CAD">
+          <p>Figure 2: Close up image of LCP Combi Hole.</p>
+        </td>
+      </tr>
+    
+      <tr>
+        <td style="vertical-align: top;">
+          <h3>Scalloped Underside</h3>
+          <p class="clinical-context">
+            To further optimise the implant-bone interface, the underside of the plate shaft is scalloped. This reduces the contact area between the metal implant and the underlying skeleton to provide maximum vascular protection.
+          </p>
+          <ul>
+            <li><strong>Preserved Blood Flow:</strong> Minimises contact with the periosteum to protect the bone's outer blood supply. This prevents localized bone tissue death and helps speed up biological healing.</li>
+            <li><strong>Optimised Stress Distribution:</strong> Smooths out the stiffness transition and increases flexibility along the plate shaft. This reduces high stress concentrations around the screw holes during movement.</li>
+            <li><strong>Reduced Rigid Fixation:</strong> Lowers the plate's structural weight and stiffness. This lets the healing bone share some of the normal walking loads, which helps prevent long-term bone thinning from stress shielding.</li>
+          </ul>
+        </td> 
+        <td style="text-align: center; vertical-align: middle;">
+          <img src="Images/scalloping.png" alt="Underside Scalloping CAD">
+          <p>Figure 3: Lateral view (left) and posterior view (right) of the implant to highlight the underside scalloping.</p>
+        </td>
+      </tr>
+    
+      <tr>
+        <td style="vertical-align: top;">
+          <h3>Material Selection: Titanium 6Al-4V</h3>
+          <p class="clinical-context">
+            To achieve the optimal balance between high loading strength and biological compatibility, the implant is manufactured from medical-grade Titanium 6Al-4V alloy. This material selection ensures advanced structural payload survival.
+          </p>
+          <ul>
+            <li><strong>Biomechanical Compliance:</strong> Features a much lower elastic modulus (~114 GPa) than stainless steel (~200 GPa). This closer match to human bone reduces the stiffness mismatch, helping to mitigate long-term stress shielding.</li>
+            <li><strong>High Strength-to-Weight Ratio:</strong> Provides an exceptional yield strength (880 MPa) while keeping the plate thin and lightweight. This ensures the implant can easily survive the 29kg child forces without permanently deforming.</li>
+            <li><strong>Superior Biocompatibility:</strong> Forms a passive oxide surface layer that delivers excellent corrosion resistance inside the body. This prevents the release of harmful metallic ions, lowering the risk of adverse tissue reactions.</li>
+          </ul>
+        </td> 
+        <td style="text-align: center; vertical-align: middle;">
+          <img src="Images/Titanium6AL-4V-Properties.png" alt="Titanium 6AL 4V Stress-Strain Curve">
+           <p>Figure 4: Stress-strain curve of medical grade Titanium 6AL-4V. Source <a href="#references" class="scroll-and-open">[5]</a></p>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <button type="button" class="collapsible"> <h2>FEA Results</h2> </button>
+  <div class="content";>  
+  <strong> 
+    <p>To be Updated with FEA results.</p>
+  </strong>
+  </div>
+  
+  <button type="button" id="references" class="collapsible"> <h2>References</h2> </button>
+  <div class="content">
+    <p> [1] Chen C, Milbrandt TA, Babadi E, Duong SQ, Larson DR, Shaughnessy WJ, et al. Normative Femoral and Tibial Lengths in a Modern Population of Twenty-First-Century U.S. Children. Journal of Bone and Joint Surgery [Internet]. 2023 Jan 19 [cited 2026 Oct 5];105(6):468–78. Available from: <a>https://www.med.uvm.edu/docs/jc_peds_may_2023/orthopaedics-documents/jc_peds_may_2023.pdf?sfvrsn=be39953a_0</a> </p>
+    <p> [2] UK Growth Chart for Girls (2–18 years) with Additional Guidance for Pubertal Assessment [Internet]. Harlow, UK: Royal College of Paediatrics and Child Health (RCPCH); 2012 [cited 2026 Oct 5]. Available from: <a>https://www.rcpch.ac.uk/sites/default/files/Girls_2-18_years_growth_chart.pdf</a> </P>
+    <p> [3] UK Growth Chart for Boys (2–18 years) with Additional Guidance for Pubertal Assessment [Internet]. Harlow, UK: Royal College of Paediatrics and Child Health (RCPCH); 2012 [cited 2026 Oct 5]. Available from: <a>https://www.rcpch.ac.uk/sites/default/files/Boys_2-18_years_growth_chart.pdf</a> </p>
+    <p> [4] Bergmann G, Bender A, Dymke J, Duda G, Damm P. Standardized Loads Acting in Hip Implants. Pérez MA, editor. PLOS ONE. 2016 May 19;11(5):e0155612. Available from: <a>https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155612#pone-0155612-t005</a> </p>
+    <p> [5] Marin E, Lanzutti A. Biomedical applications of titanium alloys: A comprehensive review. Materials [Internet]. 2024 Jan 1 [cited 2026 Oct 15];17(1):114. Available from: <a>https://www.mdpi.com/1996-1944/17/1/114</a> </p>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
