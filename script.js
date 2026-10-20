@@ -5,10 +5,29 @@ for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
+        
         if (content.style.maxHeight){
+            var heightToSubtract = content.scrollHeight;
             content.style.maxHeight = null;
+            
+            var parent = this.parentElement.closest('.content');
+            while (parent) {
+                if (parent.style.maxHeight) {
+                    parent.style.maxHeight = (parseInt(parent.style.maxHeight) - heightToSubtract) + "px";
+                }
+                parent = parent.parentElement.closest('.content');
+            }
         } else {
             content.style.maxHeight = content.scrollHeight + "px";
+            var heightToAdd = content.scrollHeight;
+            
+            var parent = this.parentElement.closest('.content');
+            while (parent) {
+                if (parent.style.maxHeight) {
+                    parent.style.maxHeight = (parseInt(parent.style.maxHeight) + heightToAdd) + "px";
+                }
+                parent = parent.parentElement.closest('.content');
+            }
         }
     });
 }
@@ -29,3 +48,4 @@ document.querySelectorAll('.remote-link').forEach(link => {
         }
     });
 });
+
