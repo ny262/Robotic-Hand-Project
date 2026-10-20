@@ -20,11 +20,11 @@
   <tr style="font-size: 11px; text-align: left; vertical-align: top;">
     <td style="padding: 10px; line-height: 1.4; background-color: #f4f8fc; color: #1a1a1a; border: none;">
       <strong>Status: Complete</strong><br>
-      <span style="color: #64748b;">Anatomy research & cardboard kinematics.</span>
+      <span style="color: #64748b;">Anatomical research and low fidelity prototyping.</span>
     </td>
     <td style="padding: 10px; line-height: 1.4; background-color: #f4f8fc; color: #1a1a1a; border: none;">
       <strong>Status: Active</strong><br>
-      <span style="color: #64748b;">Chassis modelling & linkage calculation.</span>
+      <span style="color: #64748b;">Mechanical Design Simulation Using CAD Software</span>
     </td>
     <td style="padding: 10px; line-height: 1.4; background-color: #fafbfc; color: #1a1a1a; border: none;">
       <strong>Status: Scheduled</strong><br>
@@ -37,125 +37,348 @@
   </tr>
 </table>
 
-
 <body>
+
+<h2>Project Overview</h2>
+  <p>The goal of this project is to design an anatomically accurate hand, controlled by a muscle sensor and actuated by a servo-tendon system, which is able to open and close a fist.</p>
   
-  <p>The goal of this project is to design an anatomically accurate hand, controlled by a muscle sensor and actuated by a servo-tendon system, which is able to open and close a fist.
-Defining Success: 
-The device is successful if…
-Response Latency: Activates with a maximum delay of 1 second relative to the user’s arm signals 
-Kinematic Range: Demonstrates the structural flexibility required to close into a complete fist 
-Anatomical Accuracy: Maintains individual phalanx lengths and total finger spans within a 10% variance of standard adult anthropometric averages (Appendix: Anthropometric Reference Data). 
-  </p>
-  
-  <p>
-  Designed for a 35 cm femur, this plate corresponds to the typical anatomy of an 8-to 9-year-old child <a href="#references" class="remote-link">[1]</a>. A child in this age range typically weighs between 25 to 29 kilograms <a href="#references" class="scroll-and-open">[2]</a> <a href="#references" class="remote-link">[3]</a>. The implant was designed for the walking forces of a 29 kg child, calculated by downscaling multi-axis adult gait telemetry data, with a safety factor of 2.0 <a href="#references" class="scroll-and-open">[4]</a>.
-  </p>
-  
-  <button type="button" class="collapsible"> <h2>Mechanical CAD and 3D Printing</h2> </button>
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: left; width: 15%;"><h3>Success Metric</h3></th>
+        <th style="text-align: left; width: 20%;"><h3>Target Specification</h3></th>
+        <th style="text-align: left; width: 65%;"><h3>Engineering Justification</h3></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Response Latency</td>
+        <td><strong>&le; 1.0 second</strong> delay</td>
+        <td>Ensures real-time responsiveness relative to the user's actual muscle/arm signals.</td>
+      </tr>
+      <tr>
+        <td>Kinematic Range</td>
+        <td>Full closure capability</td>
+        <td>Demonstrates sufficient structural design flexibility to mimic a complete human fist.</td>
+      </tr>
+      <tr>
+        <td>Anatomical Accuracy</td>
+        <td>Within <strong>10%</strong> variance</td>
+        <td>Matches standard adult anthropometric averages for precise phalanx length and finger spans. <em>(Appendix: Anthropometric Reference Data)</em></td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size: 12px; margin-top: 8px; line-height: 1.4;"><strong>Table 1:</strong> Success Metrics for the Robotic Hand Design</p>
+
+ <p> The project is divided into four phases, each with its own set of objectives and deliverables. The first three phases are detailed below, while the fourth phase will be addressed in future work.</p> 
+
+
+<button type="button" class="collapsible" style="border-left: 20px solid #003875;"><h2>Phase 1: Anatomical Research and Low Fidelity Prototyping. </h2></button>
   <div class="content">
-    <h3>Anatomical Foundation</h3>
-    <p>
-      <ul>The human muscle-tendon system sits in the forearm and anchors at the wrist carpal ligament, providing the mechanical foundation for finger curling (Figure 1.1).</ul>
-      <ul>Muscle contractions pull these tendons downward, rotating the phalangeal joints to close the fingers into a fist (Figure 1.1).</ul>
-      <ul>The main finger flexor is a deep forearm muscle mass that splits into four separate tendon lines to control each finger independently (Figure 1.2).</ul>
-    </p>
-    <img src="Images/Hand-Palmar-View" alt="Palmar View of Tendon Anatomy in the Hand"> <img src="Images/Flexor-Muscle-Anatomy" alt="Anatomy of the flexor muscles in the forearm ">
+  
+  <button type="button" class="collapsible" style="border-left: 20px solid #003875;"><h3>Phase 1a: Anatomical Research </h3></button>
+    <div class="content">
+
+      <p>The design of the robotic hand is based on the anatomical structure of the human hand, specifically focusing on the muscle-tendon system that enables finger movement.</p>
+      <table>
+        <tr>
+          <td>
+            <ul>
+              <li>
+                The human muscle-tendon system sits in the forearm and anchors at the wrist carpal ligament, providing the mechanical foundation for finger curling.
+              </li>
+              <li>
+                Muscle contractions pull these tendons downward, rotating the phalangeal joints to close the fingers into a fist.
+              </li>
+              <li>
+                The main finger flexor is a deep forearm muscle mass that splits into four separate tendon lines to control each finger independently.
+              </li>
+            </ul>
+            <img src="Images/flexor-muscle-anatomy.png" alt="Hand Anatomy" style="float: left; width: 100%; height: auto; display: block; max-width: 800px; margin: 20px auto;">
+              <p style="font-size: 12px; margin-top: 8px; line-height: 1.4;"><strong>Figure 1:</strong> Diagram of the forearm muscle anatomy, highlighting the major muscles that facilitate finger flexion. Source: <a href="#references" class="remote-link">[1]</a></p>
+          </td>
+          <td>
+            <img src="Images/dorsal-view.png" alt="Dorsal View of Muscle and Tendon Anatomy" style="width: 100%; height: auto; display: block; max-width: 350px; margin: 0 auto;">
+            <p style="font-size: 12px; margin-top: 8px; line-height: 1.4;"><strong>Figure 2:</strong> Dorsal view of finger anatomy, focusing on the flexor digitorum profundus and its tendon lines. Source: <a href="#references" class="remote-link">[2]</a></p>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <button type="button" class="collapsible" style="border-left: 20px solid #003875;"><h3>Phase 1b: Low-Fidelity Prototyping</h3></button>
+    <div class="content">
+
+      <img src="Images/low-fi-prototype.png" alt="Low Fidelity Prototype" style="width: 100%; height: auto; display: block; max-width: 800px; margin: 20px auto;">
+      <p style="font-size: 12px; margin-top: 8px; line-height: 1.4; text-align: center;"><strong>Figure 3:</strong> Low fidelity prototype of the robotic hand, constructed using cardboard and dental floss to simulate the tendon system. Self-sourced.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th><h3>Development Stage</h3></th>
+            <th><h3>Prototyping Methodology</h3></th>
+            <th><h3>Mechanical Insights & Limitations</h3></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Low-Fi Modelling</strong></td>
+            <td>Constructed hand profile using corrugated cardboard cutouts. Bonded rigid cardboard tube sections to simulate bone structures while leaving joint creases unglued for joint mobility.</td>
+            <td>Cardboard compliance under structural loading highlighted a definitive need for rigid, 3D-printed phalanges to prevent body warping during execution gestures.</td>
+          </tr>
+          <tr>
+            <td><strong>Tendon Actuation</strong></td>
+            <td>Routed dental floss strands through the cardboard alignment tubes to act as flexor tendons, manually pulling the strands to model flexor muscle contractions.</td>
+            <td>High friction and binding tendencies between the dental floss and tube walls demonstrated a critical requirement for dedicated, low-friction tendon guide channels in the final CAD design.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size: 12px; margin-top: 8px; line-height: 1.4;"><strong>Table 2:</strong> Mechanical Limitations Gauged from the Low-Fidelity Prototype and Solutions</p>
+      <div style="margin-top: 40px;"></div>
+
+      <p>While the cardboard model worked as a quick proof of concept, the testing process highlighted several mechanical limitations that helped guide the final CAD design choices.</p>
+
+      <div style="margin-top: 40px;"></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th><h3>Problem</h3></th>
+            <th><h3>Cause</h3></th>
+            <th><h3>Solution</h3></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fingers don't curl at the right angles</td>
+            <td>Using a single servo means all the tendon strings get pulled at the exact same distance.</td>
+            <td>Switch to multiple servos to control each finger independently.</td>
+          </tr>
+          <tr>
+            <td>Thumb and pinky bend the wrong way</td>
+            <td>The cardboard prototype can only bend flatly in a single direction.</td>
+            <td>Design angled hinge joints in the final CAD model to mirror real hand movements.</td>
+          </tr>
+          <tr>
+            <td>Fingers stay permanently bent</td>
+            <td>The cardboard creases after a few pulls and loses its natural spring.</td>
+            <td>Use a closed-loop tendon system that physically pulls the fingers back open when the servo reverses.</td>
+          </tr>
+          <tr>
+            <td>Servo motor topples over under a heavy load</td>
+            <td>The motor generates more torque than the temporary tape and mount can handle.</td>
+            <td>Model custom mounting brackets directly into the 3D-printed forearm chassis.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+
+<button type="button" class="collapsible" style="border-left: 20px solid #0056b3; "><h2>Phase 2: Mechanical Design Simulation Using CAD Software</h2></button>
+    <div class="content">
+      
+      <p>The objective was to translate standard human hand dimensions into a functional mechanism. The digital design focused on overcoming three main structural constraints:</p>
+
+      <ul>
+        <li>Shifting away from flat, single-axis hinges toward angled joint rotations to replicate realistic finger paths.</li>
+        <li>Moving from a single, shared motor line to a dedicated multi-servo system to allow individual finger control.</li>
+        <li>Routing internal pathways for a continuous, closed-loop tendon cable that acts like a pulley to actively pull the finger back open during servo reversal.</li>
+      </ul>
+      
+      <table>
+        <tr>
+          <td>
+            <h3>Phalangeal Linkage Design</h3>
+            <ul>
+              <li>An interlocking clevis design stops lateral joint wobble and increases overall structural stability.</li>
+              <li>Counterbored pivot holes allow the hinge pins to sit completely flush, keeping the outer profile smooth.</li>
+              <li>Internal routing channels run through the core to guide the high-tensile tendon lines smoothly.</li>
+            </ul>
+          </td>
+          <td>
+            <img src="Images/phalangeal-linkage.png" alt="Phalangeal Linkage CAD" style="width: 100%; height: auto; display: block; max-width: 400px; margin: 0 auto;">
+            <p style="font-size: 12px; margin-top: 8px; line-height: 1.4;"><strong>Figure 4:</strong> Close up of the phalangeal linkage design, highlighting the interlocking clevis and internal tendon routing channels. Self-sourced.</p>
+          </td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>
+            <h3>Palm Casing and Tendon Alignment Channels</h3>
+            <ul>
+              <li>Designed as a two-piece split chassis to allow straightforward internal access for routing the tendon lines and mounting the hardware.</li>
+              <li>Integrated alignment channels guide each finger along its natural flexion path and prevent the tendon lines from tangling or slipping.</li>
+              <li>Snap-fit latches help the top and bottom halves attach easily, ensuring perfect assembly alignment without requiring excessive fasteners</li>
+            </ul>
+          </td>
+          <td>
+            <img src="Images/palm-casing.png" alt="Palm Casing CAD" style="width: 100%; height: auto; display: block; max-width: 400px; margin: 0 auto;">
+            <p style="font-size: 12px; margin-top: 8px; line-height: 1.4;"><strong>Figure 5:</strong> Close up of the palm casing design and the tendon alignment channels. Self-sourced.</p>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+<button type="button" class="collapsible" style="border-left: 20px solid #e6f0fa;"><h2>Phase 3: 3D Printing, Wiring, & Physical Testing</h2></button>
+    <div class="content">
+    </div>
+
+<button type="button" id="references" class="collapsible"> <h2>References</h2> </button>
+  <div class="content">
+    <p> <strong>[1]</strong> Flexor tendon injuries [Internet]. Aberdeen Virtual Hand Clinic. 2021 [cited 2026 Oct 20]. Available from: <a href="https://aberdeenvirtualhandclinic.co.uk/flexor-tendon-injuries/" target="_blank">https://aberdeenvirtualhandclinic.co.uk/flexor-tendon-injuries/</a></p>
+    <p> <strong>[2]</strong> Jones O. Flexor pollicis longus - attachments - actions - TeachMeAnatomy [Internet]. teachmeanatomy.info. 2022 [cited 2026 Oct 20]. Available from: <a href="https://teachmeanatomy.info/encyclopaedia/f/flexor-pollicis-longus/" target="_blank">https://teachmeanatomy.info/encyclopaedia/f/flexor-pollicis-longus/ </a> </p>
+    <p> <strong>[3]</strong> Bakirci S, Çay M. Height estimation by evaluating morphometric measurements of hands and fingers. Med Science. 2022;11(3):1336–9. p. 1337, Table 1, Descriptive statistical data obtained from finger lengths and other morphometric measurements. Available from: <a href="https://www.researchgate.net/publication/363172251_Height_estimation_by_evaluating_morphometric_measurements_of_hands_and_fingers" target="_blank">https://www.researchgate.net/publication/363172251_Height_estimation_by_evaluating_morphometric_measurements_of_hands_and_fingers</a></p>
+    <p> <strong>[4]</strong> Miller AS, Gwyn R, Bhattacharjee D, Banks LN. Fibonacci’s Mathematical Sequence Predicts Functional and Actual Lengths of the Phalanges of the Hand. Journal of Nature and Science of Medicine. 2021 Jan;4(1):58–63.</p>
+    <p> <strong>[5]</strong> </p>
+  </div>
+
+<button type="button" id="appendix" class="collapsible"> <h2>Appendix</h2> </button>
+  <div class="content">
    
     <table>
+    <thead>
       <tr>
-        <th style="text-align: left; width: 65%;">Implant Feature </th>
-        <th style="text-align: left; width: 35%;">Visual Reference</th>
+        <th><h3>Finger</h3></th>
+        <th><h3>Finger Length / cm</h3></th>
+        <th><h3>Ratios</h3></th>
       </tr>
-    
+    </thead>
+    <tbody>
       <tr>
-        <td style="vertical-align: top;">
-          <h3>Distal Anchor Configuration</h3>
-          <p class="clinical-context">
-            Children have active growth plates (physis) at their joints. The distal physis is located where the head of the adult fracture plate would normally sit. For a child, the head must be positioned above the physis so that the screws do not damage it.
-          </p>
-          <ul>
-            <li><strong>Maximised Anchor Space:</strong> Fits the most screws securely within the small area above the growth plate.</li>
-            <li><strong>Torsional Resistance:</strong> The triangular layout stops the bone from twisting.</li>
-            <li><strong>Fixation Stability:</strong> Spreads the 29 kg scaled child forces evenly to avoid damaging soft paediatric bone.</li>
-          </ul>
-        </td> 
-        <td style="text-align: center; vertical-align: middle;">
-          <img src="Images/distal-anchor.PNG" alt="Distal Anchor CAD">
-           <p>Figure 1: Image highlighting distal anchor positioning above the growth plate location.</p>
-        </td>
+        <td>Thumb</td>
+        <td>5.85</td>
+        <td>2:3</td>
       </tr>
-    
       <tr>
-        <td style="vertical-align: top;">
-          <h3>Locking Compression Plate Combi Holes</h3>
-          <p class="clinical-context">
-            To complement this configuration, the plate shaft utilises LCP Combi Holes. This hybrid geometry integrates a threaded section for fixed-angle locking screws with dynamic compression cortical screws to achieve optimal load management.
-          </p>
-          <ul>
-            <li><strong>Mechanical Versatility:</strong> Allows the choice between rigid bridging fixation and axial compression depending on intraoperative needs.</li>
-            <li><strong>Biological Preservation:</strong> Locks the screws directly to the plate to avoid compression against the periosteal surface, preserving blood supply to accelerate bone healing.</li>
-          </ul>
-        </td> 
-        <td style="text-align: center; vertical-align: middle;">
-          <img src="Images/lcp-combi-hole.png" alt="Combi Holes CAD">
-          <p>Figure 2: Close up image of LCP Combi Hole.</p>
-        </td>
+        <td>Index</td>
+        <td>6.78</td>
+        <td>2:3:5</td>
       </tr>
-    
       <tr>
-        <td style="vertical-align: top;">
-          <h3>Scalloped Underside</h3>
-          <p class="clinical-context">
-            To further optimise the implant-bone interface, the underside of the plate shaft is scalloped. This reduces the contact area between the metal implant and the underlying skeleton to provide maximum vascular protection.
-          </p>
-          <ul>
-            <li><strong>Preserved Blood Flow:</strong> Minimises contact with the periosteum to protect the bone's outer blood supply. This prevents localized bone tissue death and helps speed up biological healing.</li>
-            <li><strong>Optimised Stress Distribution:</strong> Smooths out the stiffness transition and increases flexibility along the plate shaft. This reduces high stress concentrations around the screw holes during movement.</li>
-            <li><strong>Reduced Rigid Fixation:</strong> Lowers the plate's structural weight and stiffness. This lets the healing bone share some of the normal walking loads, which helps prevent long-term bone thinning from stress shielding.</li>
-          </ul>
-        </td> 
-        <td style="text-align: center; vertical-align: middle;">
-          <img src="Images/scalloping.png" alt="Underside Scalloping CAD">
-          <p>Figure 3: Lateral view (left) and posterior view (right) of the implant to highlight the underside scalloping.</p>
-        </td>
+        <td>Middle</td>
+        <td>7.46</td>
+        <td>2:3:5</td>
       </tr>
-    
       <tr>
-        <td style="vertical-align: top;">
-          <h3>Material Selection: Titanium 6Al-4V</h3>
-          <p class="clinical-context">
-            To achieve the optimal balance between high loading strength and biological compatibility, the implant is manufactured from medical-grade Titanium 6Al-4V alloy. This material selection ensures advanced structural payload survival.
-          </p>
-          <ul>
-            <li><strong>Biomechanical Compliance:</strong> Features a much lower elastic modulus (~114 GPa) than stainless steel (~200 GPa). This closer match to human bone reduces the stiffness mismatch, helping to mitigate long-term stress shielding.</li>
-            <li><strong>High Strength-to-Weight Ratio:</strong> Provides an exceptional yield strength (880 MPa) while keeping the plate thin and lightweight. This ensures the implant can easily survive the 29kg child forces without permanently deforming.</li>
-            <li><strong>Superior Biocompatibility:</strong> Forms a passive oxide surface layer that delivers excellent corrosion resistance inside the body. This prevents the release of harmful metallic ions, lowering the risk of adverse tissue reactions.</li>
-          </ul>
-        </td> 
-        <td style="text-align: center; vertical-align: middle;">
-          <img src="Images/Titanium6AL-4V-Properties.png" alt="Titanium 6AL 4V Stress-Strain Curve">
-           <p>Figure 4: Stress-strain curve of medical grade Titanium 6AL-4V. Source <a href="#references" class="scroll-and-open">[5]</a></p>
-        </td>
+        <td>Ring</td>
+        <td>6.89</td>
+        <td>2:3:5</td>
       </tr>
-    </table>
+      <tr>
+        <td>Little</td>
+        <td>5.62</td>
+        <td>1:1:2</td>
+      </tr>
+    </tbody>
+</table>
+<p style="font-size: 12px; margin-top: 8px; line-height: 1.4;"> <strong>Table A1:</strong> Finger lengths and phalanx ratios Source: Table generated using data from <a href="#references" class="remote-link">[3]</a>  <a href="#references" class="remote-link">[4]</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><h3>Finger</h3></th>
+      <th><h3>Finger Length Lower Bound / cm</h3></th>
+      <th><h3>Distal Phalanx Length Lower Bound / cm</h3></th>
+      <th><h3>Metacarpal Phalanx Length Lower Bound / cm</h3></th>
+      <th><h3>Pivotal Phalanx Length Lower Bound / cm</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Thumb</td>
+      <td>5.265</td>
+      <td>2.106</td>
+      <td>N/A</td>
+      <td>3.159</td>
+    </tr>
+    <tr>
+      <td>Index</td>
+      <td>6.102</td>
+      <td>1.2204</td>
+      <td>1.8306</td>
+      <td>3.051</td>
+    </tr>
+    <tr>
+      <td>Middle</td>
+      <td>6.714</td>
+      <td>1.3428</td>
+      <td>2.0142</td>
+      <td>3.357</td>
+    </tr>
+    <tr>
+      <td>Ring</td>
+      <td>6.201</td>
+      <td>1.2402</td>
+      <td>1.8603</td>
+      <td>3.1005</td>
+    </tr>
+    <tr>
+      <td>Little</td>
+      <td>5.058</td>
+      <td>1.2645</td>
+      <td>1.2645</td>
+      <td>2.529</td>
+    </tr>
+  </tbody>
+</table>
+<p style="font-size: 12px; margin-top: 8px; line-height: 1.4;"> <strong>Table A2:</strong> Phalanx length lower bounds. Source: Table generated using data from <a href="#references" class="remote-link">[3]</a>  <a href="#references" class="remote-link">[4]</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><h3>Finger</h3></th>
+      <th><h3>Finger Length Upper Bound / cm</h3></th>
+      <th><h3>Distal Phalanx Length Upper Bound / cm</h3></th>
+      <th><h3>Metacarpal Phalanx Length Upper Bound / cm</h3></th>
+      <th><h3>Pivotal Phalanx Length Upper Bound / cm</h3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Thumb</td>
+      <td>6.435</td>
+      <td>2.574</td>
+      <td>N/A</td>
+      <td>3.861</td>
+    </tr>
+    <tr>
+      <td>Index</td>
+      <td>7.458</td>
+      <td>1.4916</td>
+      <td>2.2374</td>
+      <td>3.729</td>
+    </tr>
+    <tr>
+      <td>Middle</td>
+      <td>8.206</td>
+      <td>1.6412</td>
+      <td>2.4618</td>
+      <td>4.103</td>
+    </tr>
+    <tr>
+      <td>Ring</td>
+      <td>7.579</td>
+      <td>1.5158</td>
+      <td>2.2737</td>
+      <td>3.7895</td>
+    </tr>
+    <tr>
+      <td>Little</td>
+      <td>6.182</td>
+      <td>1.5455</td>
+      <td>1.5455</td>
+      <td>3.091</td>
+    </tr>
+  </tbody>
+</table>
+<p style="font-size: 12px; margin-top: 8px; line-height: 1.4;"> <strong>Table A3:</strong> Phalanx length upper bounds. Source: Table generated using data from <a href="#references" class="remote-link">[3]</a>  <a href="#references" class="remote-link">[4]</a></p>
   </div>
-  
-  <button type="button" class="collapsible"> <h2>FEA Results</h2> </button>
-  <div class="content";>  
-  <strong> 
-    <p>To be Updated with FEA results.</p>
-  </strong>
-  </div>
-  
-  <button type="button" id="references" class="collapsible"> <h2>References</h2> </button>
-  <div class="content">
-    <p> [1] Chen C, Milbrandt TA, Babadi E, Duong SQ, Larson DR, Shaughnessy WJ, et al. Normative Femoral and Tibial Lengths in a Modern Population of Twenty-First-Century U.S. Children. Journal of Bone and Joint Surgery [Internet]. 2023 Jan 19 [cited 2026 Oct 5];105(6):468–78. Available from: <a>https://www.med.uvm.edu/docs/jc_peds_may_2023/orthopaedics-documents/jc_peds_may_2023.pdf?sfvrsn=be39953a_0</a> </p>
-    <p> [2] UK Growth Chart for Girls (2–18 years) with Additional Guidance for Pubertal Assessment [Internet]. Harlow, UK: Royal College of Paediatrics and Child Health (RCPCH); 2012 [cited 2026 Oct 5]. Available from: <a>https://www.rcpch.ac.uk/sites/default/files/Girls_2-18_years_growth_chart.pdf</a> </P>
-    <p> [3] UK Growth Chart for Boys (2–18 years) with Additional Guidance for Pubertal Assessment [Internet]. Harlow, UK: Royal College of Paediatrics and Child Health (RCPCH); 2012 [cited 2026 Oct 5]. Available from: <a>https://www.rcpch.ac.uk/sites/default/files/Boys_2-18_years_growth_chart.pdf</a> </p>
-    <p> [4] Bergmann G, Bender A, Dymke J, Duda G, Damm P. Standardized Loads Acting in Hip Implants. Pérez MA, editor. PLOS ONE. 2016 May 19;11(5):e0155612. Available from: <a>https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155612#pone-0155612-t005</a> </p>
-    <p> [5] Marin E, Lanzutti A. Biomedical applications of titanium alloys: A comprehensive review. Materials [Internet]. 2024 Jan 1 [cited 2026 Oct 15];17(1):114. Available from: <a>https://www.mdpi.com/1996-1944/17/1/114</a> </p>
-  </div>
+
+<script src="script.js"></script>
+
+</body>
 
   <script src="script.js"></script>
 
