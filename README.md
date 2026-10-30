@@ -1,9 +1,11 @@
-### Tendon-Driven Robotic Hand
+## Tendon-Driven Robotic Hand
 > [!WARNING]
 > Work in Progress: Core simulation parameters and testing modules are actively being updated.
 
+### Summary
 An **anthropomorphic** robotic hand driven by a servo-actuated tendon loop, utilising cardboard failure analytics to inform a high-rigidity CAD architecture with a **scalability pathway for sEMG muscle-sensor integration**.
 
+### Project Breakdown
 - **📐 Design Tools:** Cardboard low-fidelity modeling, Fusion 360 (interlocking clevis & split-chassis routing), and 3D printing.
 - **🧪 Testing & Success Metrics:** Target response latency **≤ 1.0s**, anatomical dimensions within **10%** of adult anthropometric averages, and closed-loop kinematic retention cycles.
 - **📈 Iterative Design Evolutions (From Low-Fi Prototyping):**
