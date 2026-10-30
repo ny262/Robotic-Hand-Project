@@ -11,4 +11,4 @@ An **anthropomorphic** robotic hand driven by a servo-actuated tendon loop, util
 - **📈 Iterative Design Evolutions (From Low-Fi Prototyping):**
   - *Structural:* Swapped warped cardboard profiles for rigid interlocking clevis linkages to eliminate lateral joint wobble.
   - *Kinematics:* Engineered an internal channel pulley route to prevent tendon binding and force joint flexion.
-- **🌐 Links:** [Design Progress Log](https://ny262.github.io/Tendon-Driven-Robotic-Hand/) **|** [CAD & Data Repository](https://github.com/ny262/Tendon-Driven-Robotic-Hand)
+- **🌐 Links:** [Design Progress Log](https://ny262.github.io/Tendon-Driven-Robotic-Hand/) **|** [Main Portfolio Repository](https://github.com/ny262/ny262.github.io)
